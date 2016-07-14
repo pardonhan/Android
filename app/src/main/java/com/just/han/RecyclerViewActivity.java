@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by Just on 2016/7/4.
+ *
  */
 public class RecyclerViewActivity extends AppCompatActivity {
 

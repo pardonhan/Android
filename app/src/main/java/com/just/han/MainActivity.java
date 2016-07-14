@@ -77,8 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        switch (id) {
+        switch (item.getItemId()) {
             case R.id.nav_camera:
                 break;
             case R.id.nav_gallery:
@@ -90,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 break;
             case R.id.nav_send:
+                break;
+            default:
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

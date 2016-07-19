@@ -1,5 +1,4 @@
-
-ext{
+ext {
     android = [
             compileSdkVersion: 24,
             buildToolsVersion: "24.0.0",
@@ -13,5 +12,11 @@ ext{
     dependencies = [
             "appcompat-v7"        : "com.android.support:appcompat-v7:24.0.0",
             "design"              : "com.android.support:design:24.0.0",
+            'gson'                : 'com.google.code.gson:gson:2.4',
+            'sugar'               : 'com.github.satyan:sugar:1.5',
+            'eventbus'            : 'org.greenrobot:eventbus:3.0.0',
+            'butterknife'         : 'com.jakewharton:butterknife:8.1.0',
+            'butterknife-compiler': 'com.jakewharton:butterknife-compiler:8.1.0',
+            'recyclerview-v7'     : 'com.android.support:recyclerview-v7:24.0.0'
     ]
 }

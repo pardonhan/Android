@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.just.han.RelativeLayoutActivity">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/button01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="button01"/>
+        <Button
+            android:id="@+id/button02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/button01"
+            android:layout_toRightOf="@+id/button01"
+            android:layout_below="@+id/button01"
+            android:textSize="18sp"
+            android:text="button02"/>
+        <Button
+            android:id="@+id/button03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/button02"
+            android:layout_toLeftOf="@id/button02"
+            android:layout_below="@id/button02"
+            android:text="button03"
+            android:textSize="18sp"/>
+        <Button
+            android:id="@+id/button04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button04"
+            android:textSize="18sp"
+            android:layout_toEndOf="@+id/button02"
+            android:layout_toRightOf="@+id/button02"
+            android:layout_above="@id/button02"/>
+        <Button
+            android:id="@+id/button05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button05"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/button02"
+            android:layout_toRightOf="@id/button02"
+            android:layout_below="@id/button02"/>
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -28,4 +28,7 @@ dependencies {
     compile rootProject.ext.dependencies["butterknife"]
     apt rootProject.ext.dependencies['butterknife-compiler']
     compile rootProject.ext.dependencies['recyclerview-v7']
+    compile rootProject.ext.dependencies['mcxiaoke.volley']
+    compile rootProject.ext.dependencies['xutils3']
+    compile rootProject.ext.dependencies['gson']
 }

@@ -40,18 +40,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         setSupportActionBar(toolbar);
-
         fab.setOnClickListener(this);
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
-
         tvHelloWorld.setOnClickListener(this);
     }
 
@@ -99,7 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_slideshow:
-
+                intent.setClass(MainActivity.this,TaskListActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_manage:
 

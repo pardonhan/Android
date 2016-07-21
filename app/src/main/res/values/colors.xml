@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="cyans">#45d3c6</color>
+    <color name="text_view">#2F4F4F</color><!-- DarkSlateGray -->
+    <color name="blue_info">#1075DC</color>
+    <color name="goldenrod">#FFC125</color>
 </resources>

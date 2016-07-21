@@ -12,13 +12,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Just on 2016/7/4.
- *
  */
 public class RecyclerViewActivity extends AppCompatActivity {
 
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+
     List<String> mDatas;
     private HomeAdapter mAdapter;
 
@@ -26,8 +30,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_view);
+        ButterKnife.bind(this);
+
         initData();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(mAdapter = new HomeAdapter());
     }
@@ -43,10 +48,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-                    RecyclerViewActivity.this).inflate(R.layout.activity_recyucle_item, parent,
+            return new MyViewHolder(LayoutInflater.from(
+                    RecyclerViewActivity.this).inflate(R.layout.activity_recycle_item, parent,
                     false));
-            return holder;
         }
 
         @Override
@@ -60,10 +64,12 @@ public class RecyclerViewActivity extends AppCompatActivity {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
+            @BindView(R.id.id_num)
             TextView tv;
+
             public MyViewHolder(View view) {
                 super(view);
-                tv = (TextView) view.findViewById(R.id.id_num);
+                ButterKnife.bind(this, view);
             }
         }
     }

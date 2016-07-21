@@ -17,6 +17,9 @@ ext {
             'eventbus'            : 'org.greenrobot:eventbus:3.0.0',
             'butterknife'         : 'com.jakewharton:butterknife:8.1.0',
             'butterknife-compiler': 'com.jakewharton:butterknife-compiler:8.1.0',
-            'recyclerview-v7'     : 'com.android.support:recyclerview-v7:24.0.0'
+            'recyclerview-v7'     : 'com.android.support:recyclerview-v7:24.0.0',
+            'mcxiaoke.volley'     : 'com.mcxiaoke.volley:library:1.0.19',
+            'xutils3'             : 'org.xutils:xutils:3.3.36',
+
     ]
 }

@@ -31,4 +31,5 @@ dependencies {
     compile rootProject.ext.dependencies['mcxiaoke.volley']
     compile rootProject.ext.dependencies['xutils3']
     compile rootProject.ext.dependencies['gson']
+    compile project(':PullToRefreshLibrary')
 }

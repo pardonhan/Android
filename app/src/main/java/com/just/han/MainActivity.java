@@ -1,8 +1,12 @@
 package com.just.han;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,6 +18,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.just.han.activity.ScrollRefreshActivity;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,14 +101,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_slideshow:
-                intent.setClass(MainActivity.this,TaskListActivity.class);
+                intent.setClass(MainActivity.this, TaskListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_manage:
-
+                intent.setClass(MainActivity.this, ScrollRefreshActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_share:
-
                 break;
             case R.id.nav_send:
 
@@ -119,8 +126,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (view.getId()) {
             case R.id.fab:
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, RecyclerViewActivity.class);
+                /*Intent intent = new Intent();
+                intent.setClass(MainActivity.this, GridViewActivity.class);
+                startActivity(intent);*/
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                Uri data = Uri.parse("tel:" + "10086");
+                intent.setData(data);
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 startActivity(intent);
                 break;
             case R.id.hello_world:

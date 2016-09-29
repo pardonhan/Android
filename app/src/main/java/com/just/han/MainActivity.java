@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.just.han.activity.HorizontalListViewActivity;
 import com.just.han.activity.ScrollRefreshActivity;
 
 
@@ -109,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_share:
+                intent.setClass(MainActivity.this, HorizontalListViewActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_send:
 

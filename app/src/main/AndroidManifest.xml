@@ -32,8 +32,9 @@
         <activity android:name=".RelativeLayoutActivity" />
         <activity android:name=".TaskListActivity" />
         <activity android:name=".activity.GridViewActivity" />
-        <activity android:name=".activity.CustomListViewActivity"/>
-        <activity android:name=".activity.ScrollRefreshActivity"/>
+        <activity android:name=".activity.CustomListViewActivity" />
+        <activity android:name=".activity.ScrollRefreshActivity" />
+        <activity android:name=".activity.HorizontalListViewActivity"></activity>
     </application>
 
 </manifest>

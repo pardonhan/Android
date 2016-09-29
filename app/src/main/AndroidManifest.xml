@@ -34,7 +34,8 @@
         <activity android:name=".activity.GridViewActivity" />
         <activity android:name=".activity.CustomListViewActivity" />
         <activity android:name=".activity.ScrollRefreshActivity" />
-        <activity android:name=".activity.HorizontalListViewActivity"></activity>
+        <activity android:name=".activity.HorizontalListViewActivity" />
+        <activity android:name=".activity.GoodsInfoActivity"></activity>
     </application>
 
 </manifest>

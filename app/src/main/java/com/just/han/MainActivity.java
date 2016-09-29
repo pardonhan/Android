@@ -30,18 +30,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
     @BindView(R.id.fab)
     FloatingActionButton fab;
-
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-
     @BindView(R.id.nav_view)
     NavigationView navigationView;
-
     @BindView(R.id.hello_world)
     TextView tvHelloWorld;
+    @BindView(R.id.android_tv)
+    TextView tvAndroid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         tvHelloWorld.setOnClickListener(this);
+        tvAndroid.setOnClickListener(this);
     }
 
     @Override
@@ -149,6 +148,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.hello_world:
                 showDialog();
+                break;
+            case R.id.android_tv:
+                Intent intent1 = new Intent();
+                //TODO
                 break;
         }
     }

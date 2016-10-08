@@ -35,7 +35,8 @@
         <activity android:name=".activity.CustomListViewActivity" />
         <activity android:name=".activity.ScrollRefreshActivity" />
         <activity android:name=".activity.HorizontalListViewActivity" />
-        <activity android:name=".activity.GoodsInfoActivity"></activity>
+        <activity android:name=".activity.GoodsInfoActivity" />
+        <activity android:name=".activity.SsqActivity"></activity>
     </application>
 
 </manifest>

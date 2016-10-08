@@ -17,6 +17,8 @@ import com.just.han.views.SpecificationsView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by HanFL on 2016/9/29.
@@ -27,11 +29,9 @@ import java.util.HashMap;
 public class PropertyAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<HashMap<String, Object>> mList;
-    private ArrayList<HashMap<String, TextView[]>> mViewList;
-    private Drawable drawableNormal;
-    private Drawable drawablePressed;
-    private Handler mHandler;
+    private List<Map<String,  String[]>> mList;
+    private ArrayList<Map<String, TextView[]>> mViewList;
+
 
     //用于保存用户的属性集合
     private HashMap<String, String> selectProMap = new HashMap<>();
@@ -51,9 +51,8 @@ public class PropertyAdapter extends BaseAdapter {
     }
 
 
-    public PropertyAdapter(Handler handler, Context context, ArrayList<HashMap<String, Object>> list) {
+    public PropertyAdapter(Context context, List<Map<String,  String[]>> list) {
         super();
-        this.mHandler = handler;
         this.mContext = context;
         this.mList = list;
         mViewList = new ArrayList<>();
@@ -72,13 +71,12 @@ public class PropertyAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             // 获取list_item布局文件的视图
             convertView = LayoutInflater.from(this.mContext).inflate(R.layout.lv_property_item, parent, false);
@@ -94,24 +92,24 @@ public class PropertyAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         if (this.mList != null) {
-            //HashMap<String,TextView[]> mapView=new HashMap<String, TextView[]>();
-            ArrayList<String> lables = (ArrayList<String>) this.mList.get(position).get("lable");
-            String type = (String) this.mList.get(position).get("type");
+            String type =  this.mList.get(position).get("type")[0];
+            String[] lables =  this.mList.get(position).get("lable");
             holder.tvPropName.setText(type);//规格名称
             //动态加载标签
             //判断布局中的子控件是否为0，如果不为0，就不添加了，防止ListView滚动时重复添加
             if (holder.vgPropContents.getChildCount() == 0) {
-                TextView[] textViews = new TextView[lables.size()];
+                TextView[] textViews = new TextView[lables.length];
                 //设置每个标签的文本和布局
                 //TableRow tr=new TableRow(mContext);
-                for (int i = 0; i < lables.size(); i++) {
+                for (int i = 0; i < lables.length; i++) {
                     TextView textView = new TextView(mContext);
                     textView.setGravity(17);
                     textView.setPadding(25, 15, 25, 15);
                     textViews[i] = textView;
                     //textViews[i].setBackgroundResource(R.drawable.tv_property_label);
-                    textViews[i].setText(lables.get(i));
+                    textViews[i].setText(lables[i]);
                     textViews[i].setTag(i);
+                    textViews[i].setTextColor(Color.WHITE);
                     //textViews[i].setBackgroundColor(Color.parseColor("#EE5500"));
                     //tr.addView(textViews[i]);
                     // holder.llPropContents.addView(textViews[i]);

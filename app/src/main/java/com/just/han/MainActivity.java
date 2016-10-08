@@ -19,8 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.just.han.activity.GoodsInfoActivity;
 import com.just.han.activity.HorizontalListViewActivity;
 import com.just.han.activity.ScrollRefreshActivity;
+import com.just.han.activity.SsqActivity;
 
 
 import butterknife.BindView;
@@ -151,7 +153,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.android_tv:
                 Intent intent1 = new Intent();
-                //TODO
+
+                intent1.setClass(MainActivity.this, SsqActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

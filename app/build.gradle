@@ -31,4 +31,6 @@ dependencies {
     compile rootProject.ext.dependencies['xutils3']
     compile rootProject.ext.dependencies['gson']
     compile project(':PullToRefreshLibrary')
+    compile 'com.chanven.lib:cptr:1.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
 }

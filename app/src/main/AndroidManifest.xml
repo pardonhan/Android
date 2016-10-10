@@ -36,7 +36,12 @@
         <activity android:name=".activity.ScrollRefreshActivity" />
         <activity android:name=".activity.HorizontalListViewActivity" />
         <activity android:name=".activity.GoodsInfoActivity" />
-        <activity android:name=".activity.SsqActivity"></activity>
+        <activity android:name=".activity.SsqActivity" />
+        <activity android:name=".activity.HttpConnActivity" />
+        <activity
+            android:name=".activity.DrySisterActivity"
+            android:label="@string/title_activity_dry_sister"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

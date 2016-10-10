@@ -13,4 +13,5 @@
     <string name="minute">&#160;&#160;&#160;&#160;分钟</string>
     <string name="task_status">任务状态：</string>
     <string name="task_attention">注意事项:&#160;&#160;&#160;&#160;</string>
+    <string name="title_activity_dry_sister">DrySisterActivity</string>
 </resources>

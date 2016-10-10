@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.just.han.activity.GoodsInfoActivity;
 import com.just.han.activity.HorizontalListViewActivity;
+import com.just.han.activity.HttpConnActivity;
 import com.just.han.activity.ScrollRefreshActivity;
 import com.just.han.activity.SsqActivity;
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView tvHelloWorld;
     @BindView(R.id.android_tv)
     TextView tvAndroid;
+    @BindView(R.id.http_connect_tv)
+    TextView tvHttpConnect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         tvHelloWorld.setOnClickListener(this);
         tvAndroid.setOnClickListener(this);
+        tvHttpConnect.setOnClickListener(this);
     }
 
     @Override
@@ -127,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View view) {
+        Intent intent1 = new Intent();
         switch (view.getId()) {
             case R.id.fab:
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
@@ -152,9 +157,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 showDialog();
                 break;
             case R.id.android_tv:
-                Intent intent1 = new Intent();
-
                 intent1.setClass(MainActivity.this, SsqActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.http_connect_tv:
+                intent1.setClass(MainActivity.this, HttpConnActivity.class);
                 startActivity(intent1);
                 break;
         }

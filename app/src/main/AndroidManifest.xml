@@ -9,6 +9,12 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
     <application
         android:name=".AppContext"
         android:allowBackup="true"
@@ -41,7 +47,8 @@
         <activity
             android:name=".activity.DrySisterActivity"
             android:label="@string/title_activity_dry_sister"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.BottomNavigationActivity"></activity>
     </application>
 
 </manifest>

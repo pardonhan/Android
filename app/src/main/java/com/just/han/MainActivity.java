@@ -17,13 +17,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.just.han.activity.BottomNavigationActivity;
+import com.just.han.activity.DrySisterActivity;
 import com.just.han.activity.GoodsInfoActivity;
 import com.just.han.activity.HorizontalListViewActivity;
 import com.just.han.activity.HttpConnActivity;
 import com.just.han.activity.ScrollRefreshActivity;
 import com.just.han.activity.SsqActivity;
+import com.just.han.views.CustomTitleText;
 
 
 import butterknife.BindView;
@@ -45,6 +51,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView tvAndroid;
     @BindView(R.id.http_connect_tv)
     TextView tvHttpConnect;
+    @BindView(R.id.bottom_navigation_bar_tv)
+    TextView tvBottomNavigationBar;
+    @BindView(R.id.dry_sister_tv)
+    TextView tvDrySister;
+    @BindView(R.id.custom_title_text)
+    CustomTitleText customTitleText;
+    @BindView(R.id.code_edit_text)
+    EditText etCode;
+    @BindView(R.id.btn_yanzheng)
+    Button btnYanzheng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tvHelloWorld.setOnClickListener(this);
         tvAndroid.setOnClickListener(this);
         tvHttpConnect.setOnClickListener(this);
+        tvBottomNavigationBar.setOnClickListener(this);
+        tvDrySister.setOnClickListener(this);
+        btnYanzheng.setOnClickListener(this);
     }
 
     @Override
@@ -133,6 +152,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View view) {
         Intent intent1 = new Intent();
         switch (view.getId()) {
+            case R.id.btn_yanzheng:
+                String msg = "";
+                if (customTitleText.getmTitleText().equals(etCode.getText().toString())) {
+                    msg = "一致";
+                } else {
+                    msg = "不一致";
+                }
+                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                break;
             case R.id.fab:
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 /*Intent intent = new Intent();
@@ -162,6 +190,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.http_connect_tv:
                 intent1.setClass(MainActivity.this, HttpConnActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.bottom_navigation_bar_tv:
+                intent1.setClass(MainActivity.this, BottomNavigationActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.dry_sister_tv:
+                intent1.setClass(MainActivity.this, DrySisterActivity.class);
                 startActivity(intent1);
                 break;
         }

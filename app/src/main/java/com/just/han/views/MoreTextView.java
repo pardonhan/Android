@@ -35,7 +35,6 @@ public class MoreTextView extends LinearLayout {
      * 默认收起的text
      */
     private static final String COLLAPSEDTEXT = "收起";
-
     /**
      * 全文的text
      */
@@ -69,6 +68,9 @@ public class MoreTextView extends LinearLayout {
      */
     private boolean collapsed = true;
 
+    public MoreTextView(Context context) {
+        super(context);
+    }
 
     public MoreTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -87,24 +89,24 @@ public class MoreTextView extends LinearLayout {
     }
 
     private void initView(Context context, AttributeSet attrs) {
-            showTextView = new TextView(context);
-            setOrientation(VERTICAL);
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.MoreTextView);
-            textColor = ta.getColor(R.styleable.MoreTextView_textColor, Color.GRAY);
-            textSize = ta.getDimensionPixelSize(R.styleable.MoreTextView_textSize, 14);
-            expandedText = ta.getString(R.styleable.MoreTextView_expandedText);
-            if (TextUtils.isEmpty(expandedText)) {
-                expandedText = EXPANDTEXT;
-            }
-            collapsedText = ta.getString(R.styleable.MoreTextView_collapsedText);
-            if (TextUtils.isEmpty(collapsedText)) {
-                collapsedText = EXPANDTEXT;
-            }
-            trimLines = ta.getInt(R.styleable.MoreTextView_trimLines, 0);
-            ta.recycle();
-            showTextView.setTextSize(textSize);
-            showTextView.setTextColor(textColor);
-            addView(showTextView);
+        showTextView = new TextView(context);
+        setOrientation(VERTICAL);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.MoreTextView);
+        textColor = ta.getColor(R.styleable.MoreTextView_textColor, Color.GRAY);
+        textSize = ta.getDimensionPixelSize(R.styleable.MoreTextView_textSize, 14);
+        expandedText = ta.getString(R.styleable.MoreTextView_expandedText);
+        if (TextUtils.isEmpty(expandedText)) {
+            expandedText = EXPANDTEXT;
+        }
+        collapsedText = ta.getString(R.styleable.MoreTextView_collapsedText);
+        if (TextUtils.isEmpty(collapsedText)) {
+            collapsedText = EXPANDTEXT;
+        }
+        trimLines = ta.getInt(R.styleable.MoreTextView_trimLines, 0);
+        ta.recycle();
+        showTextView.setTextSize(textSize);
+        showTextView.setTextColor(textColor);
+        addView(showTextView);
     }
 
     public void setText(CharSequence text) {

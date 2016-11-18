@@ -1,4 +1,4 @@
-package com.just.han.utils;
+package com.just.han.imageload;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;

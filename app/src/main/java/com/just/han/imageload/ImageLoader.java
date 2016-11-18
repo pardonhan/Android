@@ -1,8 +1,7 @@
-package com.just.han.utils;
+package com.just.han.imageload;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.LruCache;
 import android.widget.ImageView;
 
 import java.net.HttpURLConnection;
@@ -17,13 +16,23 @@ import java.util.concurrent.Executors;
 public class ImageLoader {
     ImageCache mImageCache = new ImageCache();
     DiskCache mDiskCache = new DiskCache();
+    DoubleCache doubleCache = new DoubleCache();
+
     boolean isUseDiskCache = false;
+    boolean isUseDoubleCache = false;
+
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 
     public void displayImage(final String imageUrl, final ImageView imageView) {
-        Bitmap bitmap = isUseDiskCache ? mDiskCache.get(imageUrl) : mImageCache.get(imageUrl);
-
+        Bitmap bitmap = null;
+        if (isUseDoubleCache) {
+            bitmap = doubleCache.get(imageUrl);
+        } else if (isUseDiskCache) {
+            bitmap = mDiskCache.get(imageUrl);
+        } else {
+            bitmap = mImageCache.get(imageUrl);
+        }
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
             return;

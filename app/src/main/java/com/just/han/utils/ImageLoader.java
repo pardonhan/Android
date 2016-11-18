@@ -15,41 +15,32 @@ import java.util.concurrent.Executors;
  */
 
 public class ImageLoader {
-    LruCache<String, Bitmap> mImageCache;
+    ImageCache mImageCache = new ImageCache();
 
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    public ImageLoader() {
-        initImageCache();
-    }
 
-    private void initImageCache() {
-        // 可使用的最大缓存
-        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        int cacheSize = maxMemory / 4;
-        mImageCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap value) {
-                return value.getRowBytes() * value.getHeight() / 1024;
-            }
-        };
-    }
-
-    public void displayImage(final String imageUrl, final ImageView imageView){
+    public void displayImage(final String imageUrl, final ImageView imageView) {
+        Bitmap bitmap = mImageCache.get(imageUrl);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+            return;
+        }
         imageView.setTag(imageUrl);
         mExecutorService.submit(new Runnable() {
             @Override
             public void run() {
                 Bitmap bitmap = downloadImage(imageUrl);
-                if (bitmap==null){
+                if (bitmap == null) {
                     return;
                 }
-                if (imageView.getTag().equals(imageUrl)){
+                if (imageView.getTag().equals(imageUrl)) {
                     imageView.setImageBitmap(bitmap);
                 }
-                mImageCache.put(imageUrl,bitmap);
+                mImageCache.put(imageUrl, bitmap);
             }
         });
+
     }
 
     private Bitmap downloadImage(String imageUrl) {

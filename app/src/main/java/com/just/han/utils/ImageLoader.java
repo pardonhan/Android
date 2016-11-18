@@ -16,12 +16,14 @@ import java.util.concurrent.Executors;
 
 public class ImageLoader {
     ImageCache mImageCache = new ImageCache();
-
+    DiskCache mDiskCache = new DiskCache();
+    boolean isUseDiskCache = false;
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 
     public void displayImage(final String imageUrl, final ImageView imageView) {
-        Bitmap bitmap = mImageCache.get(imageUrl);
+        Bitmap bitmap = isUseDiskCache ? mDiskCache.get(imageUrl) : mImageCache.get(imageUrl);
+
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
             return;
@@ -56,4 +58,7 @@ public class ImageLoader {
         return bitmap;
     }
 
+    public void useDiskCache(boolean useDiskCache) {
+        this.isUseDiskCache = useDiskCache;
+    }
 }

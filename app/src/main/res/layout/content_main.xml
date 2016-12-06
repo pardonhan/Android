@@ -96,7 +96,7 @@
             android:button="@null"
             android:checked="true"
             android:gravity="center"
-            android:text="Fragmnet1" />
+            android:text="Fragment1" />
 
         <RadioButton
             android:id="@+id/btn2"
@@ -106,7 +106,7 @@
             android:background="@drawable/navigation_bar_selector"
             android:button="@null"
             android:gravity="center"
-            android:text="Fragmnet2" />
+            android:text="Fragment2" />
 
         <RadioButton
             android:id="@+id/btn3"
@@ -116,7 +116,7 @@
             android:background="@drawable/navigation_bar_selector"
             android:button="@null"
             android:gravity="center"
-            android:text="Fragmnet3" />
+            android:text="Fragment3" />
 
         <RadioButton
             android:id="@+id/btn4"
@@ -126,7 +126,7 @@
             android:background="@drawable/navigation_bar_selector"
             android:button="@null"
             android:gravity="center"
-            android:text="Fragmnet4" />
+            android:text="Fragment4" />
 
     </RadioGroup>
 </RelativeLayout>

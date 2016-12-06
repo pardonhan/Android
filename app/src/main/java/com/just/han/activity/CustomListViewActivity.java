@@ -36,10 +36,6 @@ public class CustomListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DebugLog.i("onCreate");
-        DebugLog.w("onCreate");
-        DebugLog.e("onCreate");
-
         setContentView(R.layout.activity_custom_list_view);
         ButterKnife.bind(this);
         getListViewData();
@@ -51,7 +47,6 @@ public class CustomListViewActivity extends AppCompatActivity {
         });
         listAdapter = new ListViewAdapter(CustomListViewActivity.this);
         customListView.setAdapter(listAdapter);
-
     }
 
     private void getListViewData() {

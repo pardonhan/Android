@@ -38,13 +38,11 @@ public class CollapsedTextView extends TextView {
     ReadMoreClickAbleSpan viewMoreSpan = new ReadMoreClickAbleSpan();
 
     public CollapsedTextView(Context context) {
-        super(context);
-        init(context, null);
+        this(context, null);
     }
 
     public CollapsedTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+        this(context, attrs, 0);
     }
 
     public CollapsedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -52,26 +50,21 @@ public class CollapsedTextView extends TextView {
         init(context, attrs);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CollapsedTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, attrs);
-    }
 
     private void init(Context context, AttributeSet attrs) {
-        if (attrs != null) {
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CollapsedTextView);
-            allLines = ta.getInt(R.styleable.CollapsedTextView_trimLines, 0);
-            expandedText = ta.getString(R.styleable.CollapsedTextView_expandedText);
-            if (TextUtils.isEmpty(expandedText)) {
-                expandedText = EXPANDEDTEXT;
-            }
-            collapsedText = ta.getString(R.styleable.CollapsedTextView_collapsedText);
-            if (TextUtils.isEmpty(collapsedText)) {
-                collapsedText = COLLAPSEDTEXT;
-            }
-            ta.recycle();
+
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CollapsedTextView);
+        allLines = ta.getInt(R.styleable.CollapsedTextView_trimLines, 0);
+        expandedText = ta.getString(R.styleable.CollapsedTextView_expandedText);
+        if (TextUtils.isEmpty(expandedText)) {
+            expandedText = EXPANDEDTEXT;
         }
+        collapsedText = ta.getString(R.styleable.CollapsedTextView_collapsedText);
+        if (TextUtils.isEmpty(collapsedText)) {
+            collapsedText = COLLAPSEDTEXT;
+        }
+        ta.recycle();
+
     }
 
     public void showText(final String text) {

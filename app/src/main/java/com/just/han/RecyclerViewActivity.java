@@ -17,6 +17,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Just on 2016/7/4.
+ * <p>
+ * RecyclerViewActivity
  */
 public class RecyclerViewActivity extends AppCompatActivity {
 
@@ -31,7 +33,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_view);
         ButterKnife.bind(this);
-
         initData();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(mAdapter = new HomeAdapter());
@@ -48,9 +49,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new MyViewHolder(LayoutInflater.from(
-                    RecyclerViewActivity.this).inflate(R.layout.activity_recycle_item, parent,
-                    false));
+            View view = LayoutInflater.from( RecyclerViewActivity.this).inflate(R.layout.activity_recycle_item, parent,false);
+            return new MyViewHolder(view);
         }
 
         @Override

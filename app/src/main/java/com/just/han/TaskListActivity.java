@@ -84,7 +84,6 @@ public class TaskListActivity extends AppCompatActivity implements View.OnClickL
         try {
             JSONObject jsonObject = new JSONObject(result);
             if (jsonObject.getString("result") != null) {
-
                 String data = jsonObject.getString("data");
                 Gson gson = new Gson();
                 list = gson.fromJson(data, new TypeToken<List<CheckTask>>() {

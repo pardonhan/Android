@@ -38,4 +38,5 @@ dependencies {
     compile 'com.tencent.bugly:crashreport:latest.release'
     // 其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.5
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:percent:24.2.1'
 }

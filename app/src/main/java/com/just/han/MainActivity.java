@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.just.han.activity.BottomNavigationActivity;
 import com.just.han.activity.HorizontalListViewActivity;
 import com.just.han.activity.HttpConnActivity;
+import com.just.han.activity.InflaterActivity;
 import com.just.han.activity.ScrollRefreshActivity;
 import com.just.han.activity.SmsReadActivity;
 import com.just.han.activity.SsqActivity;
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_send:
-                intent.setClass(MainActivity.this, RecyclerViewActivity.class);
+                intent.setClass(MainActivity.this, InflaterActivity.class);
                 startActivity(intent);
                 break;
             default:

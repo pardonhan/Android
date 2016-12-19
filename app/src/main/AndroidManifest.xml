@@ -13,11 +13,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
-
-    <uses-permission android:name="android.permission.RECEIVE_SMS" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.READ_SMS" >
-    </uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
 
     <application
         android:name=".AppContext"
@@ -53,7 +50,8 @@
         <activity android:name=".activity.animation.ScaleActivity" />
         <activity android:name=".activity.animation.AlphaActivity" />
         <activity android:name=".activity.animation.RotateActivity" />
-        <activity android:name=".activity.SmsReadActivity"></activity>
+        <activity android:name=".activity.SmsReadActivity" />
+        <activity android:name=".activity.InflaterActivity"></activity>
     </application>
 
 </manifest>

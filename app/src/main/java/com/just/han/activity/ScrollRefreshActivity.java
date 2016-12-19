@@ -82,8 +82,7 @@ public class ScrollRefreshActivity extends AppCompatActivity {
                     data = data.substring(1, data.length() - 1);
                     JSONObject dataJson = new JSONObject(data);
                     Gson gson = new Gson();
-                    List<SpecialShop> gsonList = new ArrayList<>();
-                    gsonList = gson.fromJson(dataJson.getString("list"), new TypeToken<List<SpecialShop>>() {
+                    List<SpecialShop> gsonList = gson.fromJson(dataJson.getString("list"), new TypeToken<List<SpecialShop>>() {
                     }.getType());
                     list.addAll(gsonList);
                     myAdapter.notifyDataSetChanged();
